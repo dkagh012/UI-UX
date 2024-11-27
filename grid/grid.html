@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="grid.css" />
+  </head>
+  <body>
+    <div id="grid" class="grid"></div>
+
+    <div class="container">
+      <div class="box-1">z</div>
+      <div class="box-2">z</div>
+      <div class="box-3">zz</div>
+      <div class="box-4">
+        1 <br />1 <br />1 <br />1 <br />1 <br />1 <br />1 <br />1 <br />1
+        <br />1
+      </div>
+    </div>
+  </body>
+  <script>
+    const grid = document.getElementById("grid");
+
+    const arr = [
+      {
+        name: "hyunmin",
+        age: 34,
+      },
+      {
+        name: "hyunmin",
+        age: 34,
+      },
+      {
+        name: "hyunmin",
+        age: 34,
+      },
+      {
+        name: "hyunmin",
+        age: 34,
+      },
+    ];
+
+    let html = "";
+    const htmls = arr.map((e) => {
+      return `<div>${e.age}</div> <div>${e.name}</div>`;
+    });
+    html += htmls.join("");
+    grid.innerHTML = html;
+  </script>
+</html>

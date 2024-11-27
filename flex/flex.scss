@@ -1,0 +1,15 @@
+$bg-color: red, yellow, blue;
+
+.container {
+  background: red;
+  display: flex;
+
+  @for $i from 1 through length($bg-color) {
+    .box-#{$i} {
+      background: nth($bg-color, $i);
+      flex-grow: $i;
+      flex-basis: 300px;
+      flex-shrink: $i;
+    }
+  }
+}
