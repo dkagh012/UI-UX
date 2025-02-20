@@ -1,0 +1,227 @@
+@charset "UTF-8";
+.elevator_wrap {
+  height: 194px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 77px;
+  right: 30px;
+}
+
+.elevator_bc {
+  width: 30px;
+  height: 150px;
+  position: absolute;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  background: white;
+  border-radius: 10px;
+  bottom: 22px;
+  right: 10px;
+}
+
+.elevator {
+  position: relative;
+  height: 150px;
+}
+.elevator-container {
+  text-align: center;
+  margin: auto;
+  height: 150px;
+  max-height: 150px;
+  width: 92px;
+  display: flex;
+  flex-direction: column-reverse;
+  position: relative;
+  overflow: hidden;
+}
+
+#floors {
+  width: 33px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  overflow-y: auto;
+  max-height: 150px;
+  padding: 0 50px;
+  padding-right: 0;
+  -ms-overflow-style: none;
+}
+#floors::-webkit-scrollbar {
+  display: none;
+}
+
+.floor {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  position: relative;
+  cursor: pointer;
+}
+.floor.active {
+  font-weight: 500;
+  color: #ff4c13;
+  background-color: #ffede7;
+  border: 1px solid #ff4c13;
+}
+.floor.active::after {
+  content: "";
+  position: absolute;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent #ff4c13;
+  left: -5px;
+  margin-top: 0px;
+}
+.floor.active::before {
+  content: "현재층";
+  position: absolute;
+  left: -47px;
+  width: 42px;
+  background-color: #ff4c13;
+  border-radius: 6px;
+  padding: 5px 0;
+  font-size: 10px;
+  color: white;
+  font-weight: bold;
+}
+.floor.clicked {
+  font-weight: 500;
+  color: #4472c4;
+  background-color: #cddfff;
+  border: 1px solid #4472c4;
+}
+.floor.clicked::after {
+  content: "";
+  position: absolute;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent #4472c4;
+  margin-top: 0px;
+  left: -5px;
+}
+.floor.clicked::before {
+  content: "도착지";
+  position: absolute;
+  left: -47px;
+  width: 42px;
+  background-color: #4472c4;
+  border-radius: 6px;
+  padding: 5px 0;
+  font-size: 10px;
+  color: white;
+  font-weight: bold;
+}
+.floor.first {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.floor.last {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.arrow {
+  cursor: pointer;
+  font-size: 24px;
+  display: none;
+  margin: 5px auto;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.arrow.show {
+  display: block;
+  text-align: center;
+}
+
+#up-arrow {
+  position: absolute;
+  top: 0;
+  background-image: url(up.png);
+  right: 14.9px;
+  cursor: pointer;
+  background-position: center;
+  width: 20px;
+  background-repeat: no-repeat;
+  height: 15px;
+  margin: 0;
+}
+
+#down-arrow {
+  position: absolute;
+  bottom: 0;
+  right: 14.9px;
+  background-image: url(down.png);
+  width: 20px;
+  background-repeat: no-repeat;
+  height: 15px;
+  cursor: pointer;
+  margin: 0;
+  background-position: center;
+}
+
+.external-info {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+  display: none;
+  z-index: 100;
+}
+.external-info.show-info {
+  display: block;
+}
+
+.destination-floor-info,
+.current-floor-info {
+  width: 42px;
+  border-radius: 6px;
+  padding: 5px 0;
+  font-size: 10px;
+  color: white;
+  font-weight: bold;
+  left: 5px;
+}
+
+.destination-floor-info {
+  background-color: #4472c4;
+}
+.destination-floor-info::after {
+  content: "";
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent #4472c4;
+  margin-top: 0px;
+  position: absolute;
+  right: -9px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.current-floor-info {
+  background-color: #ff4c13;
+}
+.current-floor-info::before {
+  content: "";
+  position: absolute;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent #ff4c13;
+  margin-top: 0px;
+  right: -9px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.none::before, .none::after {
+  display: none;
+}/*# sourceMappingURL=styles.css.map */
