@@ -54,7 +54,31 @@
     display: none;
   }
 }
+.same-floor-label {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent #ff4c13;
+    left: -5px;
+    margin-top: 0px;
+  }
 
+  &::before {
+    content: "현재층";
+    position: absolute;
+    left: -47px;
+    width: 42px;
+    background-color: #ff4c13;
+    border-radius: 6px;
+    padding: 5px 0;
+    font-size: 10px;
+    color: white;
+    font-weight: bold;
+  }
+}
 .floor {
   width: 30px;
   height: 30px;
@@ -64,13 +88,12 @@
   font-size: 10px;
   position: relative;
   cursor: pointer;
-
+  &.click {
+    background-color: #fff1c0;
+    color: #9b3c45;
+    font-weight: bold;
+  }
   &.active {
-    font-weight: 500;
-    color: #ff4c13;
-    background-color: #ffede7;
-    border: 1px solid #ff4c13;
-
     &::after {
       content: "";
       position: absolute;
@@ -96,11 +119,6 @@
   }
 
   &.clicked {
-    font-weight: 500;
-    color: #4472c4;
-    background-color: #cddfff;
-    border: 1px solid #4472c4;
-
     &::after {
       content: "";
       position: absolute;
@@ -149,30 +167,33 @@
   }
 }
 
-#up-arrow {
+#up-arrow,
+#down-arrow {
   position: absolute;
-  top: 0;
-  background-image: url(up.png);
-  right: 14.9px;
+  width: 30px;
+  height: 30px;
+  margin: 0;
   cursor: pointer;
   background-position: center;
-  width: 20px;
   background-repeat: no-repeat;
-  height: 15px;
-  margin: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#up-arrow {
+  top: -9px;
+  right: 10px;
+  background-image: url("up_2.png");
 }
 
 #down-arrow {
-  position: absolute;
-  bottom: 0;
-  right: 14.9px;
-  background-image: url(down.png);
-  width: 20px;
-  background-repeat: no-repeat;
-  height: 15px;
-  cursor: pointer;
-  margin: 0;
-  background-position: center;
+  bottom: -9px;
+  right: 10px;
+  background-image: url("down_2.png");
+}
+
+#up-arrow.active,
+#down-arrow.active {
+  opacity: 0.6;
 }
 
 .external-info {
