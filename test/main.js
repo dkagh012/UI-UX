@@ -25,9 +25,9 @@ const totalFloors = [
 ];
 
 // cuurentFloor에 현재 층수를 넣어주시면 됩니다다
-let currentFloor = "B1";
+let currentFloor = 13;
 // destinationFloor에 도착지를 넣어주시면 됩니다다
-let destinationFloor = "B2";
+let destinationFloor = 14;
 
 const floorsContainer = document.getElementById("floors");
 const floorsWrapper = document.getElementById("floors-container");
@@ -92,14 +92,12 @@ function renderFloors() {
 
       // 현재 클릭한 요소에 click 클래스 추가
       floorElement.classList.add("click");
-      console.log("Clicked floor:", floorElement.textContent);
     });
   });
 
   updateArrows();
   updateFloorVisibility();
 }
-
 // 최상층 또는 최하층에 도착 시 toggle로 적용시켰십니다.
 function updateArrows() {
   const scrollTop = floorsContainer.scrollTop;
@@ -120,8 +118,8 @@ function isElementFullyVisible(element, container) {
   const elementRect = element.getBoundingClientRect();
   const containerRect = container.getBoundingClientRect();
   return (
-    elementRect.top + 30 >= containerRect.top &&
-    elementRect.bottom - 30 <= containerRect.bottom
+    elementRect.top + 26 >= containerRect.top &&
+    elementRect.bottom - 26 <= containerRect.bottom
   );
 }
 // 엘리먼트의 위치값을 구하고 그 위치값이 container보다 높거나 낮아지면 문구가 나오도록 하는겁니다.
@@ -129,6 +127,8 @@ function updateFloorVisibility() {
   const currentFloorElement = document.querySelector(".floor.active");
   const destinationFloorElement = document.querySelector(".floor.clicked");
   const containerRect = floorsContainer.getBoundingClientRect();
+  console.log(currentFloorElement.getBoundingClientRect().bottom);
+  console.log(destinationFloorElement.getBoundingClientRect().bottom);
 
   // 현재층 정보 업데이트
   if (currentFloorElement) {
@@ -176,7 +176,7 @@ function updateFloorVisibility() {
       // 컨테이너 상단보다 위에 있는지 확인
       if (destinationElementRect.bottom < containerRect.top) {
         // 상단에서 사라진 경우
-        destinationFloorInfo.style.top = "2px";
+        destinationFloorInfo.style.top = "-27px";
         destinationFloorInfo.style.bottom = "unset";
       } else if (destinationElementRect.top > containerRect.bottom) {
         // 하단에서 사라진 경우
@@ -212,7 +212,7 @@ function updateFloorVisibility() {
         currentFloorInfo.style.top = "2px";
         destinationFloorInfo.style.top = "27px";
       } else {
-        destinationFloorInfo.style.top = "2px";
+        destinationFloorInfo.style.top = "-27px";
         currentFloorInfo.style.top = "27px";
       }
       currentFloorInfo.style.bottom = "unset";
@@ -247,7 +247,7 @@ function updateFloorVisibility() {
       destinationElementRect.top < containerRect.top &&
       currentElementRect.bottom > containerRect.bottom
     ) {
-      destinationFloorInfo.style.top = "2px";
+      destinationFloorInfo.style.top = "-27px";
       destinationFloorInfo.style.bottom = "unset";
       currentFloorInfo.style.bottom = "2px";
       currentFloorInfo.style.top = "unset";

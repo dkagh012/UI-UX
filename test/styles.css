@@ -90,8 +90,8 @@
   cursor: pointer;
 }
 .floor.click {
-  background-color: #fff1c0;
   color: #9b3c45;
+  background-color: #fff1c0;
   font-weight: bold;
 }
 .floor.active::after {
