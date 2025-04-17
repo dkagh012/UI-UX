@@ -29,11 +29,10 @@
     margin: auto;
     height: 150px;
     max-height: 150px;
-    width: 92px;
+    width: 48px;
     display: flex;
     flex-direction: column-reverse;
     position: relative;
-    overflow: hidden;
   }
 }
 
@@ -43,15 +42,85 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  position: relative;
   overflow-y: auto;
   max-height: 150px;
-  padding: 0 50px;
   padding-right: 0;
-  -ms-overflow-style: none;
+  position: absolute;
+  right: 9px;
 
   &::-webkit-scrollbar {
     display: none;
+  }
+}
+
+#floors_tootip {
+  width: 50px;
+  display: flex;
+  pointer-events: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  overflow-y: auto;
+  max-height: 150px;
+  padding-right: 0;
+  -ms-overflow-style: none;
+  left: -43px;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  position: absolute;
+
+  .floor {
+    &.active {
+      &::after {
+        content: "";
+        position: absolute;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent transparent #ff4c13;
+        left: 35px;
+        margin-top: 0px;
+      }
+
+      &::before {
+        content: "현재층";
+        position: absolute;
+        left: -6px;
+        width: 42px;
+        background-color: #ff4c13;
+        border-radius: 6px;
+        padding: 5px 0;
+        font-size: 10px;
+        color: white;
+        font-weight: bold;
+      }
+    }
+
+    &.clicked {
+      &::after {
+        content: "";
+        position: absolute;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent transparent #4472c4;
+        margin-top: 0px;
+        left: 35px;
+      }
+
+      &::before {
+        content: "도착지";
+        position: absolute;
+        left: -6px;
+        width: 42px;
+        background-color: #4472c4;
+        border-radius: 6px;
+        padding: 5px 0;
+        font-size: 10px;
+        color: white;
+        font-weight: bold;
+      }
+    }
   }
 }
 .same-floor-label {
@@ -92,55 +161,6 @@
     color: #9b3c45;
     background-color: #fff1c0;
     font-weight: bold;
-  }
-  &.active {
-    &::after {
-      content: "";
-      position: absolute;
-      border-width: 5px;
-      border-style: solid;
-      border-color: transparent transparent transparent #ff4c13;
-      left: -5px;
-      margin-top: 0px;
-    }
-
-    &::before {
-      content: "현재층";
-      position: absolute;
-      left: -47px;
-      width: 42px;
-      background-color: #ff4c13;
-      border-radius: 6px;
-      padding: 5px 0;
-      font-size: 10px;
-      color: white;
-      font-weight: bold;
-    }
-  }
-
-  &.clicked {
-    &::after {
-      content: "";
-      position: absolute;
-      border-width: 5px;
-      border-style: solid;
-      border-color: transparent transparent transparent #4472c4;
-      margin-top: 0px;
-      left: -5px;
-    }
-
-    &::before {
-      content: "도착지";
-      position: absolute;
-      left: -47px;
-      width: 42px;
-      background-color: #4472c4;
-      border-radius: 6px;
-      padding: 5px 0;
-      font-size: 10px;
-      color: white;
-      font-weight: bold;
-    }
   }
 
   &.first {
@@ -219,7 +239,7 @@
   font-size: 10px;
   color: white;
   font-weight: bold;
-  left: 5px;
+  left: -40px;
 }
 
 .destination-floor-info {

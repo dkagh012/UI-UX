@@ -30,6 +30,7 @@ let currentFloor = 13;
 let destinationFloor = 14;
 
 const floorsContainer = document.getElementById("floors");
+const tootlpContainer = document.getElementById("floors_tootip");
 const floorsWrapper = document.getElementById("floors-container");
 const upArrow = document.getElementById("up-arrow");
 const downArrow = document.getElementById("down-arrow");
@@ -98,6 +99,27 @@ function renderFloors() {
   updateArrows();
   updateFloorVisibility();
 }
+function renderTootip() {
+  tootlpContainer.innerHTML = "";
+  const sortedFloors = sortFloors([...totalFloors]);
+
+  sortedFloors.forEach((floor, index) => {
+    const floorDiv = document.createElement("div");
+    floorDiv.classList.add("floor");
+    floorDiv.style.height = "30px";
+    floorDiv.style.minHeight = "30px";
+    floorDiv.textContent = ""; // ✅ 내부 텍스트를 공백으로 설정
+
+    if (floor === currentFloor) {
+      floorDiv.classList.add("active");
+    }
+    if (floor === destinationFloor) {
+      floorDiv.classList.add("clicked");
+    }
+
+    tootlpContainer.appendChild(floorDiv);
+  });
+}
 // 최상층 또는 최하층에 도착 시 toggle로 적용시켰십니다.
 function updateArrows() {
   const scrollTop = floorsContainer.scrollTop;
@@ -127,8 +149,6 @@ function updateFloorVisibility() {
   const currentFloorElement = document.querySelector(".floor.active");
   const destinationFloorElement = document.querySelector(".floor.clicked");
   const containerRect = floorsContainer.getBoundingClientRect();
-  console.log(currentFloorElement.getBoundingClientRect().bottom);
-  console.log(destinationFloorElement.getBoundingClientRect().bottom);
 
   // 현재층 정보 업데이트
   if (currentFloorElement) {
@@ -275,7 +295,7 @@ downArrow.addEventListener("click", () => {
 });
 
 renderFloors();
-
+renderTootip();
 window.addEventListener("resize", () => {
   updateArrows();
   updateFloorVisibility();
@@ -304,3 +324,14 @@ document.addEventListener("DOMContentLoaded", function () {
     animateArrow(downArrow, "down_2.png", "down.png");
   });
 });
+
+function syncScroll(e) {
+  if (e.target === floorsContainer) {
+    tootlpContainer.scrollTop = floorsContainer.scrollTop;
+  } else {
+    floorsContainer.scrollTop = tootlpContainer.scrollTop;
+  }
+}
+
+floorsContainer.addEventListener("scroll", syncScroll);
+tootlpContainer.addEventListener("scroll", syncScroll);

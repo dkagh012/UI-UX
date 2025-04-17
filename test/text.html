@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>화면 확대/축소 컨트롤</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+        touch-action: none; /* Disable browser's default touch actions */
+      }
+
+      #zoomInput {
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        padding: 10px;
+        font-size: 18px;
+        text-align: center;
+        border: 1px solid #000;
+        border-radius: 5px;
+        margin: 0 auto;
+      }
+
+      #zoomDisplay {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="zoomDisplay">확대/축소: 100%</div>
+    <input type="text" id="zoomInput" placeholder="여기를 클릭하세요" />
+
+    <script>
+      class ZoomControl {
+        constructor() {
+          this.nowZoom = 100;
+          this.zoomFactor = 130; // 확대 비율
+          this.zoomInput = document.getElementById("zoomInput");
+          this.zoomDisplay = document.getElementById("zoomDisplay");
+          this.addEventListeners();
+        }
+
+        addEventListeners() {
+          this.zoomInput.addEventListener("focus", () => this.handleZoom(true));
+          this.zoomInput.addEventListener("blur", () => this.handleZoom(false));
+        }
+
+        handleZoom(isZoomIn) {
+          this.nowZoom = isZoomIn ? this.zoomFactor : 100;
+          this.updateZoom();
+        }
+
+        updateZoom() {
+          document.body.style.transform = `scale(${this.nowZoom / 100})`;
+          document.body.style.transformOrigin = "top left";
+          this.zoomDisplay.textContent = `확대/축소: ${this.nowZoom}%`;
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        new ZoomControl();
+      });
+    </script>
+  </body>
+</html>
