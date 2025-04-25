@@ -60,8 +60,8 @@ function renderFloors() {
     const floorDiv = document.createElement("div");
     floorDiv.classList.add("floor");
     floorDiv.textContent = `${floor}`;
-    floorDiv.style.height = "30px";
-    floorDiv.style.minHeight = "30px";
+    floorDiv.style.height = "36px";
+    floorDiv.style.minHeight = "36px";
 
     if (index === 0) {
       floorDiv.classList.add("first");
@@ -106,8 +106,8 @@ function renderTootip() {
   sortedFloors.forEach((floor, index) => {
     const floorDiv = document.createElement("div");
     floorDiv.classList.add("floor");
-    floorDiv.style.height = "30px";
-    floorDiv.style.minHeight = "30px";
+    floorDiv.style.height = "36px";
+    floorDiv.style.minHeight = "36px";
     floorDiv.textContent = ""; // ✅ 내부 텍스트를 공백으로 설정
 
     if (floor === currentFloor) {
@@ -282,14 +282,14 @@ floorsContainer.addEventListener("scroll", () => {
 
 upArrow.addEventListener("click", () => {
   floorsContainer.scrollBy({
-    top: -150,
+    top: -180,
     behavior: "smooth",
   });
 });
 
 downArrow.addEventListener("click", () => {
   floorsContainer.scrollBy({
-    top: 150,
+    top: 180,
     behavior: "smooth",
   });
 });
@@ -308,7 +308,7 @@ document.addEventListener("DOMContentLoaded", function () {
     arrow.classList.add("active"); // 투명도 애니메이션 적용
     setTimeout(() => {
       arrow.style.backgroundImage = `url(${image2})`;
-    }, 300); // **0.3초 후 이미지 변경**
+    }, 360); // **0.3초 후 이미지 변경**
 
     setTimeout(() => {
       arrow.style.backgroundImage = `url(${image1})`;

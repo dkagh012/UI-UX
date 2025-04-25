@@ -7,7 +7,7 @@
   justify-content: center;
   position: absolute;
   bottom: 77px;
-  right: 10px;
+  right: 30px;
 }
 
 .elevator_bc {
@@ -30,11 +30,10 @@
   margin: auto;
   height: 150px;
   max-height: 150px;
-  width: 92px;
+  width: 48px;
   display: flex;
   flex-direction: column-reverse;
   position: relative;
-  overflow: auto;
 }
 
 #floors {
@@ -43,14 +42,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  position: relative;
   overflow-y: auto;
   max-height: 150px;
-  /*padding: 0 50px;*/
-  /*padding-right: 0;*/
-  left: 50.5px;
-  border-radius: 10px;
-  -ms-overflow-style: none;
+  padding-right: 0;
+  position: absolute;
+  right: 9px;
+  overflow: hidden;
+  border-radius: 12px;
 }
 #floors::-webkit-scrollbar {
   display: none;
@@ -59,6 +57,7 @@
 #floors_tootip {
   width: 50px;
   display: flex;
+  pointer-events: none;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
@@ -67,6 +66,7 @@
   max-height: 150px;
   padding-right: 0;
   -ms-overflow-style: none;
+  left: -43px;
   position: absolute;
 }
 #floors_tootip::-webkit-scrollbar {
@@ -84,7 +84,7 @@
 #floors_tootip .floor.nowActive::before {
   content: "현재층";
   position: absolute;
-  left: -5px;
+  left: -6px;
   width: 42px;
   background-color: #ff4c13;
   border-radius: 6px;
@@ -105,7 +105,7 @@
 #floors_tootip .floor.clicked::before {
   content: "도착지";
   position: absolute;
-  left: -5px;
+  left: -6px;
   width: 42px;
   background-color: #4472c4;
   border-radius: 6px;
@@ -230,7 +230,7 @@
   font-size: 10px;
   color: white;
   font-weight: bold;
-  left: 5px;
+  left: -40px;
 }
 
 .destination-floor-info {

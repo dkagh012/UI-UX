@@ -10,7 +10,7 @@
 }
 
 .elevator_bc {
-  width: 30px;
+  width: 36px;
   height: 150px;
   position: absolute;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -22,13 +22,12 @@
 
 .elevator {
   position: relative;
-  height: 150px;
+  height: 180px;
 
   &-container {
     text-align: center;
     margin: auto;
-    height: 150px;
-    max-height: 150px;
+    height: 180px;
     width: 48px;
     display: flex;
     flex-direction: column-reverse;
@@ -47,7 +46,8 @@
   padding-right: 0;
   position: absolute;
   right: 9px;
-
+  overflow: hidden;
+  border-radius: 12px;
   &::-webkit-scrollbar {
     display: none;
   }
@@ -149,8 +149,8 @@
   }
 }
 .floor {
-  width: 30px;
-  height: 30px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -190,8 +190,8 @@
 #up-arrow,
 #down-arrow {
   position: absolute;
-  width: 30px;
-  height: 30px;
+  width: 36px;
+  height: 36px;
   margin: 0;
   cursor: pointer;
   background-position: center;

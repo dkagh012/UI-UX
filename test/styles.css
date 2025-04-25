@@ -11,25 +11,24 @@
 }
 
 .elevator_bc {
-  width: 30px;
-  height: 150px;
+  width: 36px;
+  height: 180px;
   position: absolute;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   background: white;
   border-radius: 10px;
-  bottom: 22px;
-  right: 10px;
+  bottom: 7px;
+  right: 9px;
 }
 
 .elevator {
   position: relative;
-  height: 150px;
+  height: 180px;
 }
 .elevator-container {
   text-align: center;
   margin: auto;
-  height: 150px;
-  max-height: 150px;
+  height: 180px;
   width: 48px;
   display: flex;
   flex-direction: column-reverse;
@@ -37,16 +36,18 @@
 }
 
 #floors {
-  width: 33px;
+  width: 37px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   overflow-y: auto;
-  max-height: 150px;
+  max-height: 180px;
   padding-right: 0;
   position: absolute;
   right: 9px;
+  overflow: hidden;
+  border-radius: 12px;
 }
 #floors::-webkit-scrollbar {
   display: none;
@@ -61,7 +62,7 @@
   justify-content: flex-start;
   position: relative;
   overflow-y: auto;
-  max-height: 150px;
+  max-height: 180px;
   padding-right: 0;
   -ms-overflow-style: none;
   left: -43px;
@@ -139,8 +140,8 @@
 }
 
 .floor {
-  width: 30px;
-  height: 30px;
+  width: 36px;
+  height: 16.6666666667%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -168,8 +169,8 @@
   display: none;
   margin: 5px auto;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 .arrow.show {
   display: block;
@@ -179,8 +180,8 @@
 #up-arrow,
 #down-arrow {
   position: absolute;
-  width: 30px;
-  height: 30px;
+  width: 36px;
+  height: 36px;
   margin: 0;
   cursor: pointer;
   background-position: center;
@@ -189,14 +190,14 @@
 }
 
 #up-arrow {
-  top: -9px;
+  top: -28px;
   right: 10px;
   background-image: url("up_2.png");
 }
 
 #down-arrow {
-  bottom: -9px;
-  right: 10px;
+  bottom: -28px;
+  right: 8px;
   background-image: url("down_2.png");
 }
 
@@ -260,6 +261,7 @@
   transform: translate(0, -50%);
 }
 
-.none::before, .none::after {
+.none::before,
+.none::after {
   display: none;
-}/*# sourceMappingURL=styles.css.map */
+} /*# sourceMappingURL=styles.css.map */
